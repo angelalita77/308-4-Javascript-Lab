@@ -45,9 +45,31 @@ console.log(newArr); // output newArr as a 2D Matrix
 
 console.log('\n');
 // ------------------- Part 3 --------------------------------
+
+
+let csvDataMatrix = newArr
+console.log(csvDataMatrix);
+
 // For each row of data in the result array produced by your code above, 
 // create an object where the key of each value is the heading for that value’s column.
+let headers = csvDataMatrix[0];
+//console.log (headers);
 
+let objArr =[];
+
+for (let i = 1; i < csvDataMatrix.length; i++) {
+    row = csvDataMatrix[i];
+    let obj = {};
+    
+    for (let j = 0; j < headers.length; j++) {
+        obj [headers[j]] = row[j]
+        //console.log(headers[j]);
+    }
+
+    objArr.push(obj);
+}
+
+console.log(objArr);
 // Convert these keys to all lowercase letters for consistency.
 // Store these objects in an array, in the order that they were originally listed.
 // Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
