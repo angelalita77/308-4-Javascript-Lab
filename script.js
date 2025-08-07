@@ -93,5 +93,20 @@ console.log(objArr);
 objArr.push(newEntry2);
 console.log(objArr);
 
+
 // Finally, use the values of each object within the array and the array’s length property to calculate the average age of the group. 
 // This calculation should be accomplished using a loop.
+
+//console.log(objArr[0].age);
+let sumAge = 0;
+let averageAge = 0;
+let numOfPeopple = objArr.length;
+
+// Go through the array to only transerse threw the age key of each object in each row
+for (let i = 0; i < objArr.length; i++){
+  
+    sumAge = Number(objArr[i].age);
+}
+averageAge = sumAge / numOfPeopple;
+
+console.log (`The average age of the group of ${numOfPeopple} people is: ${averageAge}`);
