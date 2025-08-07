@@ -1,7 +1,7 @@
-console.log(`Part 3: Feeling Loopy\n`);
+console.log(`Part 1: Feeling Loopy Refactored \n`);
 
 const csvData = 'ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26'
-console.log(csvData)
+
 
 // convert the string into an array where each indencies is segment before '\n'
 // Example: rows[0] = "ID, Name, Occupation, Age"
@@ -21,10 +21,10 @@ for (row of rows) {
     console.log(cell1, cell2, cell3, cell4);
 }
 
+
 console.log('\n');
 // -----------------------Part 2 -----------------------
-
-
+console.log(`Part 2: Expanding Functionality \n`);
 // Declare a variable that stores the number of columns in each row of data within the CSV.
 // Instead of hard-coding four columns per row, expand your code to accept any number of columns. 
 // This should be calculated dynamically based on the first row of data.
@@ -45,15 +45,21 @@ console.log(newArr); // output newArr as a 2D Matrix
 
 console.log('\n');
 // ------------------- Part 3 --------------------------------
+console.log(`Part 3: Transforming Data\n`);
 
+// Saving the 2D matrix of the string to a better labled variable
+let csvDataMatrix = newArr;
 
-let csvDataMatrix = newArr
-console.log(csvDataMatrix);
 
 // For each row of data in the result array produced by your code above, 
 // create an object where the key of each value is the heading for that value’s column.
-let headers = csvDataMatrix[0];
-//console.log (headers);
+let tempHeaders = csvDataMatrix[0];
+let headers = [];
+
+// Convert these keys to all lowercase letters for consistency.
+for (let i = 0; i < tempHeaders.length; i++){
+    headers[i] = tempHeaders[i].toLowerCase();
+}
 
 // object Array to store each object
 let objArr =[];
@@ -64,22 +70,28 @@ for (let i = 1; i < csvDataMatrix.length; i++) {
     
     for (let j = 0; j < headers.length; j++) {
         // save each row as an object header
-        obj [headers[j]] = row[j]
-        //console.log(headers[j]);
+        obj[headers[j]] = row[j];
     }
-
+    // console.log(obj)
     objArr.push(obj);
+
 }
 
 console.log(objArr);
-// Convert these keys to all lowercase letters for consistency.
+
 // Store these objects in an array, in the order that they were originally listed.
 // Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
 
 // ----------------- Part 4 -------------------------------
-
 let newEntry1 = { id: "48", name: "Barry", occupation: "Runner", age: "25" };
 let newEntry2 = { id: "7", name: "Bilbo", occupation: "None", age: "111" };
 
-objArr = newEntry1.push()
+// place the first object newEntry1 at after index 1 but not removing anything 
+objArr.splice(1,0,newEntry1);
 console.log(objArr);
+// push second object newEntry2 at the end of the array
+objArr.push(newEntry2);
+console.log(objArr);
+
+// Finally, use the values of each object within the array and the array’s length property to calculate the average age of the group. 
+// This calculation should be accomplished using a loop.
