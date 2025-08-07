@@ -55,6 +55,7 @@ console.log(csvDataMatrix);
 let headers = csvDataMatrix[0];
 //console.log (headers);
 
+// object Array to store each object
 let objArr =[];
 
 for (let i = 1; i < csvDataMatrix.length; i++) {
@@ -62,6 +63,7 @@ for (let i = 1; i < csvDataMatrix.length; i++) {
     let obj = {};
     
     for (let j = 0; j < headers.length; j++) {
+        // save each row as an object header
         obj [headers[j]] = row[j]
         //console.log(headers[j]);
     }
@@ -73,3 +75,11 @@ console.log(objArr);
 // Convert these keys to all lowercase letters for consistency.
 // Store these objects in an array, in the order that they were originally listed.
 // Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
+
+// ----------------- Part 4 -------------------------------
+
+let newEntry1 = { id: "48", name: "Barry", occupation: "Runner", age: "25" };
+let newEntry2 = { id: "7", name: "Bilbo", occupation: "None", age: "111" };
+
+objArr = newEntry1.push()
+console.log(objArr);
