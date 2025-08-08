@@ -129,22 +129,39 @@ console.log(`Part 5: Full Circle...MU-HAHAHAHA \n`);
 console.log("Start with object array");
 console.log(objArr);
 
-// transfer keys into newHeaders array
-let newHeaders = [];
+// transfer keys into keysToHeader array
+let keysToHeader = []; 
+
 
 //transfer the rest of strings into the remaining rows in newMatrix
 let newMatrix = [];
 
 // Grab the labels to be saved has headers
 for (key in objArr[0]) {
-    let tempStr = key;
-    let newString = "";
-    //Uppercase the first letter in each string
-    newString = tempStr[0].toUpperCase() + tempStr.slice(1)
-    newHeaders.push(newString) // Push each uppercased first lettered string to newHeaders array
-    // console.log(newHeaders);
+    keysToHeader.push(key) 
+    // console.log(keysToHeader)
+}
+//
+newMatrix.push(keysToHeader);
+
+
+// Get the values from objects within the length of the object array. 
+// Loop through each index of the array to access each object
+for (let i = 0; i < objArr.length; i++) {
+    let row = []; 
+    // each iteration will save an object in a row in the array
+    for (let j = 0; j < keysToHeader.length; j++) { 
+        // it will use the header keys [keysToHeader[j]] to access the values of the objects one row at a time objArr[i]
+        // objArr[0][keysToHeader[0]] => objArr[0]["id"] = 42
+        row.push( objArr[i][keysToHeader[j]] ); 
+    }
+    newMatrix.push(row)
 }
 
-for ()
-console.log(newHeaders);
+console.log(newMatrix);
+//console.log(objArr[0]["id"]);
 
+
+    
+    //Uppercase the first letter in each string
+    // newString = tempStr[0].toUpperCase() + tempStr.slice(1);
