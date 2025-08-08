@@ -175,7 +175,21 @@ for (let i = 1; i < newMatrix[0].length; i++) {
             newMatrix[0][i] = row[i];
         }        
 
-console.log(`\nConvert object array to 2D matrix array:`)
-console.log(newMatrix)
+console.log(`\nConvert object array to 2D matrix array:`);
+console.log(newMatrix);
 
+// Convert newMatrix 2D array into a string
+// At the end of each row, a "\n" will be added
+let backToStr = ""; // to store and add the string as it loops through the matrix array
 
+for (let i = 0; i < newMatrix.length; i++) {
+    backToStr += newMatrix[i] + "\n"
+    // if (i < newMatrix.length - 1) {
+    //     tempStr = "\n"
+    // }
+
+    
+}
+
+console.log(`Covert 2D matrix array to back to flat string in csv format:`)
+console.log(backToStr);
