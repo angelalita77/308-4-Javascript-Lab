@@ -158,10 +158,24 @@ for (let i = 0; i < objArr.length; i++) {
     newMatrix.push(row)
 }
 
-console.log(newMatrix);
+
+// console.log(newMatrix);
 //console.log(objArr[0]["id"]);
 
+// Uppercase "id" to "ID"
+newMatrix[0][0] = newMatrix[0][0].toUpperCase();
 
-    
-    //Uppercase the first letter in each string
-    // newString = tempStr[0].toUpperCase() + tempStr.slice(1);
+//Uppercase the first letter in each string
+// Exception is "id" where both letters need to be capitalized
+// newString = tempStr[0].toUpperCase() + tempStr.slice(1);
+for (let i = 1; i < newMatrix[0].length; i++) {
+            str = newMatrix[0][i];
+            str = str[0].toUpperCase() + str.slice(1);
+            row[i] = str;
+            newMatrix[0][i] = row[i];
+        }        
+
+console.log(`\nConvert object array to 2D matrix array:`)
+console.log(newMatrix)
+
+
